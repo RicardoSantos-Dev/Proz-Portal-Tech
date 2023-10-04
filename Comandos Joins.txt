@@ -1,0 +1,34 @@
+Create database Escola;
+
+use database Escola;
+
+create table Disciplinas(
+  id SERIAL PRIMARY KEY,
+  nome_disciplina varchar(20) NOT NULL,
+  professor varchar(50) NOT NULL
+);
+
+create table Alunos(
+  id_aluno SERIAL PRIMARY KEY,
+  nome_aluno varchar(50),
+  id_disciplina INT,
+  CONSTRAINT FOREIGN KEY (id_disciplina) REFERENCES Disciplinas (id)
+);
+
+insert into Disciplinas (nome, professor) VALUES ("Vida", "Ricardo");
+insert into Alunos (nome) VALUES ("Eloah" 1);
+
+select nome_disciplina, nome_aluno from Alunos inner join Disciplinas
+on Disciplinas.id = Alunos.id_disciplinas;
+
+select nome_disciplina, nome_aluno from Alunos left join Disciplinas
+on Disciplinas.id = Alunos.id_disciplinas;
+
+select nome_disciplina, nome_aluno from Alunos right join Disciplinas
+on Disciplinas.id = Alunos.id_disciplinas;
+
+select nome_disciplina, nome_aluno from Alunos left join Disciplinas
+on Disciplinas.id = Alunos.id_disciplinas
+union
+select nome_disciplina, nome_aluno from Alunos right join Disciplinas
+on Disciplinas.id = Alunos.id_disciplinas;
