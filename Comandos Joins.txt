@@ -1,6 +1,6 @@
-Create database Escola;
+Create DATABASE Escola;
 
-use database Escola;
+use DATABASE Escola;
 
 create table Disciplinas(
   id SERIAL PRIMARY KEY,
